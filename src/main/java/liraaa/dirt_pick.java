@@ -39,14 +39,17 @@ public class dirt_pick extends MiningToolItem {
         super((float)attackDamage, attackSpeed, material, dirtpickable, settings);
     }
     private static final TagKey<Block> dirtpickable = TagKey.of(RegistryKeys.BLOCK, new Identifier("liraaa:axe"));
+    public boolean ground = false;
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         final DamageSource damage;
+
         Vec3d p = playerEntity.getRotationVector().multiply(3);
         Boolean l = playerEntity.isOnGround();
         playerEntity.addVelocity(p);
         playerEntity.limitFallDistance();
-        playerEntity.
+        world.createExplosion(playerEntity, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), 10, World.ExplosionSourceType.BLOCK);
+        ground = true;
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
 
