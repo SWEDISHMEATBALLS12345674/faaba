@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    " R ",
+    " R "
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:dirt"
+    },
+    "R": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "liraaa:dirt_pickr",
+    "count": 1
+  }
+}
+
+
+
